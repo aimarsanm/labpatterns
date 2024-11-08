@@ -32,7 +32,7 @@ public class SymptomFactory {
 	    List<String> digestiveSymptom=Arrays.asList("nauseas", "vómitos","diarrea");
 	    List<String> neuroMuscularSymptom=Arrays.asList("fiebre", "astenia", "cefalea", "mialgia","escalofrios");
 	    List<String> respiratorySymptom=Arrays.asList("tos seca","expectoracion","disnea","dolor de garganta", "congestión nasal","hemoptisis","congestion conjuntival");
-
+	    List<String> movilitySymptom= Arrays.asList(null);
 
 	    int impact=0;
 	    double index=0;
@@ -44,6 +44,7 @@ public class SymptomFactory {
 	    	if (digestiveSymptom.contains(symptomName)) return new DigestiveSymptom(symptomName,(int)index, impact);
 	    	if (neuroMuscularSymptom.contains(symptomName)) return new NeuroMuscularSymptom(symptomName,(int)index, impact);
 	    	if (respiratorySymptom.contains(symptomName)) return new RespiratorySymptom(symptomName,(int)index, impact);
+	    	if (movilitySymptom.contains(symptomName)) return new MovilitySymptom(symptomName,(int)index, impact);
 	    }
 	    return null;		
 		
