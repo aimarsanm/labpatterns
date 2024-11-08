@@ -5,9 +5,11 @@ import javax.swing.border.EmptyBorder;
 
 import domain.Covid19Pacient;
 import domain.Symptom;
+import domain.SymptomFactory;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.Font;
 
 public class PacientSymptomGUI extends JFrame {
@@ -18,13 +20,13 @@ public class PacientSymptomGUI extends JFrame {
     private JLabel errorLabel;
     private JLabel lblPacient;
     private JLabel labelPacient;
-    private Covid19Pacient pacient;  // Atributo para almacenar el paciente
+    private Covid19Pacient pacient;// Atributo para almacenar el paciente
 
     /**
      * Create the frame.
      */
     public PacientSymptomGUI(Covid19Pacient p) {
-        this.pacient = p;  // Asignación del paciente
+        this.pacient = p;  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200, 100, 450, 300);
         contentPane = new JPanel();
@@ -38,9 +40,13 @@ public class PacientSymptomGUI extends JFrame {
         
         symptomComboBox = new JComboBox<Symptom>();
         symptomComboBox.setBounds(195, 57, 192, 27);
-        symptomComboBox.addItem(new Symptom("fiebre", 100, 5));
-        symptomComboBox.addItem(new Symptom("tos seca", 100, 5));
-        // Agregar los demás síntomas de la misma forma
+        SymptomFactory factory = SymptomFactory.getInstance();
+        List<Symptom> symptoms = factory.getAllSymptoms();
+        
+        for (Symptom symptom : symptoms) {
+            symptomComboBox.addItem(symptom); // AÃ±adir cada sÃ­ntoma al JComboBox
+        }
+        //aÃ±adir mas cosas
         contentPane.add(symptomComboBox);
         
         JLabel lblSymptomWeight = new JLabel("Symptom weight");

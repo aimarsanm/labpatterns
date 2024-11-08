@@ -32,13 +32,29 @@ public class SymptomFactory {
 	    List<String> digestiveSymptom=Arrays.asList("nauseas", "vómitos","diarrea");
 	    List<String> neuroMuscularSymptom=Arrays.asList("fiebre", "astenia", "cefalea", "mialgia","escalofrios");
 	    List<String> respiratorySymptom=Arrays.asList("tos seca","expectoracion","disnea","dolor de garganta", "congestión nasal","hemoptisis","congestion conjuntival");
-	    List<String> movilitySymptom= Arrays.asList(null);
+	    List<String> movilitySymptom= Arrays.asList("mareos");
 
 	    int impact=0;
 	    double index=0;
-	    if (impact5.contains(symptomName)) {impact=5; index= index5.get(impact5.indexOf(symptomName));}
-	      else if (impact3.contains(symptomName)) {impact=3;index= index3.get(impact3.indexOf(symptomName));}
-	        else if (impact1.contains(symptomName)) {impact=1; index= index1.get(impact1.indexOf(symptomName));}
+	    if (impact5.contains(symptomName)) {
+	        impact = 5;
+	        int symptomIndex = impact5.indexOf(symptomName);
+	        if (symptomIndex < index5.size()) {
+	            index = index5.get(symptomIndex);
+	        }
+	    } else if (impact3.contains(symptomName)) {
+	        impact = 3;
+	        int symptomIndex = impact3.indexOf(symptomName);
+	        if (symptomIndex < index3.size()) {
+	            index = index3.get(symptomIndex);
+	        }
+	    } else if (impact1.contains(symptomName)) {
+	        impact = 1;
+	        int symptomIndex = impact1.indexOf(symptomName);
+	        if (symptomIndex < index1.size()) {
+	            index = index1.get(symptomIndex);
+	        }
+	    }
 	 
 	    if (impact!=0)  {
 	    	if (digestiveSymptom.contains(symptomName)) return new DigestiveSymptom(symptomName,(int)index, impact);
@@ -55,5 +71,27 @@ public class SymptomFactory {
 	        }
 	        return instance;
 	    }
+
+	public List<Symptom> getAllSymptoms() {
+        SymptomFactory factory = getInstance();
+        return Arrays.asList(
+            factory.createSymptom("fiebre"),
+            factory.createSymptom("tos seca"),
+            factory.createSymptom("astenia"),
+            factory.createSymptom("expectoracion"),
+            factory.createSymptom("disnea"),
+            factory.createSymptom("dolor de garganta"),
+            factory.createSymptom("cefalea"),
+            factory.createSymptom("mialgia"),
+            factory.createSymptom("escalofrios"),
+            factory.createSymptom("mareos"),
+            factory.createSymptom("nauseas"),
+            factory.createSymptom("vómitos"),
+            factory.createSymptom("congestión nasal"),
+            factory.createSymptom("diarrea"),
+            factory.createSymptom("hemoptisis"),
+            factory.createSymptom("congestion conjuntival")
+        );
+	}
 
 }

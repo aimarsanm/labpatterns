@@ -137,18 +137,18 @@ public class PacientSymptomGUI extends JFrame {
 	}
 	
 	public String createReport() {
-		Iterator<Symptom> i=((Covid19Pacient) p.getSymptoms()).iterator();
+	    Iterator<Symptom> i = p.getSymptoms().keySet().iterator();
 	    Symptom p2;
-	    String s="<html> Covid impact: <b>"+p.covidImpact()+"</b><br>";
-	    s=s+"Symptoms: <br>";
+	    String s = "<html> Covid impact: <b>" + p.covidImpact() + "</b><br>";
+	    s = s + "Symptoms: <br>";
 	    while (i.hasNext()) {
-	    	 p2=i.next();
-	    	if (p2!=null) 
-	        	s=s+p2.toString()+", "+p.getWeight(p2)+"<br>";	
+	        p2 = i.next();
+	        if (p2 != null) 
+	            s = s + p2.toString() + ", " + p.getWeight(p2) + "<br>";    
 	    }
-	    s=s+"</html>";
-        return s;	}
-	
+	    s = s + "</html>";
+	    return s;    
+	}
 	public boolean isNumeric(String str) { 
 		  try {  
 		    Integer.parseInt(str);  

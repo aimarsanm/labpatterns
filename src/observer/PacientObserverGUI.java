@@ -38,19 +38,22 @@ public class PacientObserverGUI extends JFrame  implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		 Covid19Pacient	p=(Covid19Pacient)o;
-		 String	s="<html>	Pacient:	<b>"+p.getName()+"</b>	<br>";
-		 s=s+"Covid impact:	<b>"+p.covidImpact()+"</b><br><br>";
-		 s=s+" _____________________	<br>	Symptoms:	<br>";
-		 Iterator<Symptom>	i=((Covid19Pacient) p.getSymptoms()).iterator();
-		 Symptom	p2;
-		 while (i.hasNext())	{
-				 p2=i.next();
-				 s=s+ "		- " +	p2.toString()+",	"+p.getWeight(p2)+"<br>";
-				}
-				s=s+"</html>";
-				symptomLabel.setText(s);
-		
+	    // Check if the observable object is an instance of Covid19Pacient
+	    if (o instanceof Covid19Pacient) {
+	        Covid19Pacient p = (Covid19Pacient) o;
+	        String s = "<html> Pacient: <b>" + p.getName() + "</b> <br>";
+	        s = s + "Covid impact: <b>" + p.covidImpact() + "</b><br><br>";
+	        s = s + " _____________________ <br> Symptoms: <br>";
+	        
+	        Iterator<Symptom> i = p.getSymptoms().keySet().iterator();
+	        while (i.hasNext()) {
+	            Symptom p2 = i.next();
+	            s = s + " - " + p2.toString() + ", " + p.getWeight(p2) + "<br>";
+	        }
+	        
+	        s = s + "</html>";
+	        symptomLabel.setText(s);
+	    }
 	}
 
 }

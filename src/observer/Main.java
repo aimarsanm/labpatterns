@@ -7,8 +7,7 @@ public class Main {
         Covid19Pacient pacient = new Covid19Pacient("Aitor", 35);
         new PacientObserverGUI(pacient);
         PacientSymptomGUI symptomGUI = new PacientSymptomGUI(pacient);
-
-        symptomGUI.addSymptom("tos seca", 2);
-        symptomGUI.removeSymptom("tos seca");
+        PacientThermometerGUI gui1_1 = new PacientThermometerGUI(pacient);
+        SemaphorGUI gui= new SemaphorGUI(pacient);
     }
 }

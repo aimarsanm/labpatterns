@@ -38,7 +38,7 @@ public class Covid19Pacient extends Observable{
 
 	
 	public Symptom getSymptomByName(String symptomName) {
-		Iterator<Symptom> i= ((Covid19Pacient) getSymptoms()).iterator();
+		Iterator<Symptom> i= getSymptoms().keySet().iterator();
 		Symptom s=null;
 		while (i.hasNext()) {
 			s=i.next();
