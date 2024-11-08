@@ -7,8 +7,10 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 
+import domain.Covid19Pacient;
 
-public class SemaphorGUI extends JFrame {
+
+public class SemaphorGUI extends JFrame implements Observer{
 	/** stores the associated ConcreteSubject */
 	public SemaphorGUI () {
 		setSize(100, 100);
@@ -18,5 +20,16 @@ public class SemaphorGUI extends JFrame {
 		repaint();
 		setVisible(true);
 	}
+
+	public void update(Observable	o,	Object	arg)	{
+		Covid19Pacient	p=(Covid19Pacient)o;
+		Color	c;
+		double current=p.covidImpact();
+		if (current<5)	c=Color.green;
+		else if (current<=10)	c=Color.yellow;
+		else c=Color.red;
+		getContentPane().setBackground(c);
+		repaint();
+		}
 }     
 

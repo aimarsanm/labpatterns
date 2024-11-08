@@ -21,4 +21,18 @@ public class Sorting {
 	      return list.iterator();
 	  }
 
+	public static Iterator<Symptom> sortedIteratorName(Iterator<Symptom> invertedIterator,
+			SymptomNameComparator symptomNameComparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static Iterator<Symptom> sortedIteratorIndex(Iterator<Symptom> invertedIterator,
+			SymptomSeverityComparator symptomSeverityComparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 }

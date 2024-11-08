@@ -18,7 +18,7 @@ public class Covid19PacientModelAdapter extends AbstractTableModel {
     
     public Covid19PacientModelAdapter(Covid19Pacient p) {
         //copy the HashMap data to a sequential data structure
-    	symptoms=new ArrayList<Symptom>(p.getSymptoms());
+    	symptoms=new ArrayList<Symptom>();
     	this.pacient=p;
         
     } 

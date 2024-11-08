@@ -137,7 +137,7 @@ public class PacientSymptomGUI extends JFrame {
 	}
 	
 	public String createReport() {
-		Iterator<Symptom> i=p.getSymptoms().iterator();
+		Iterator<Symptom> i=((Covid19Pacient) p.getSymptoms()).iterator();
 	    Symptom p2;
 	    String s="<html> Covid impact: <b>"+p.covidImpact()+"</b><br>";
 	    s=s+"Symptoms: <br>";

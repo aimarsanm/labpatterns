@@ -1,5 +1,6 @@
 package adapter2;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
 
@@ -22,13 +23,14 @@ public class ShowPacientTableGUI extends JFrame{
 	  	
 	  	setFonts();
 	    
-	  	TableModel tm=new Covid19PacientTableModelAdapter(pacient);
-		table = new JTable(tm);
-	    table.setRowHeight(36);
-	    JScrollPane pane = new JScrollPane(table);
-	    pane.setPreferredSize(
-	      new java.awt.Dimension(300, 200));
-	    this.getContentPane().add(pane);
+	  	
+	   
+	    setTitle("Síntomas de " + pacient.getName());
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JTable table = new JTable(new Covid19PacientTableModelAdapter(pacient));
+        add(new JScrollPane(table), BorderLayout.CENTER);
 	    
 	  
   }
