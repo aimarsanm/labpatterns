@@ -31,14 +31,14 @@ public class Covid19PacientTableModelAdapter extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int row, int col) {
-        // Convertimos el Map de síntomas en una lista para obtener el síntoma en una posición específica
+        
         List<Map.Entry<Symptom, Integer>> symptomsList = List.copyOf(pacient.getSymptoms().entrySet());
         Symptom symptom = symptomsList.get(row).getKey();
         Integer weight = symptomsList.get(row).getValue();
 
         switch (col) {
-            case 0: return symptom.getName();  // Nombre del síntoma
-            case 1: return weight;             // Peso del síntoma
+            case 0: return symptom.getName();  
+            case 1: return weight;             
             default: return null;
         }
     }

@@ -16,11 +16,11 @@ public class Main {
             ShowPacientTableGUI tableGUI1 = new ShowPacientTableGUI(pacient1);
             ShowPacientTableGUI tableGUI2 = new ShowPacientTableGUI(pacient2);
 
-            tableGUI1.setVisible(true);
-            tableGUI2.setVisible(true);
-
             pacient1.addSymptomByName("disnea", 4);
             pacient2.addSymptomByName("cefalea", 1);
+            
+            tableGUI1.setVisible(true);
+            tableGUI2.setVisible(true);
         });
     }
 }
